@@ -1,0 +1,27 @@
+.bmc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.bmc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s;
+}
+
+.bmc-card h3 {
+    color: var(--accent-primary);
+    border-bottom: 2px solid var(--accent-secondary);
+    padding-bottom: 0.5rem;
+    width: max-content;
+}
+
+.model-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
