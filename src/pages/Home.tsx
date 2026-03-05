@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, CheckCircle, Shield, Building2, TrendingUp, Percent, Layers } from 'lucide-react';
+import { ArrowRight, ChevronDown, CheckCircle, Shield } from 'lucide-react';
 import './Home.css';
 
 const fadeUp = { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } };
 const stagger = { animate: { transition: { staggerChildren: 0.18 } } };
+const inView = (delay = 0) => ({ initial: { opacity: 0, y: 40 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: '-60px' }, transition: { duration: 0.55, delay } });
 
 /* ── Business Model Canvas data ── */
 const canvas = [
@@ -34,25 +35,7 @@ const canvas = [
     },
 ];
 
-/* ── Revenue streams ── */
-const streams = [
-    {
-        icon: <Building2 size={24} />, title: 'Free-Sale Flats', pct: '60–70%',
-        desc: 'We retain flats beyond what society members receive and sell them on the open market. These fund the entire project.'
-    },
-    {
-        icon: <Layers size={24} />, title: 'Commercial Space', pct: '15–20%',
-        desc: 'Ground-floor and podium commercial units command premium rates. We retain and sell or lease these.'
-    },
-    {
-        icon: <Percent size={24} />, title: 'Early Buyer Premium', pct: '+8–12%',
-        desc: 'Pre-sales during construction create early cashflow and reduce working capital requirements.'
-    },
-    {
-        icon: <TrendingUp size={24} />, title: 'Project Management Fee', pct: 'Fixed',
-        desc: 'On JV structures where we act as development manager — predictable, low-risk income.'
-    },
-];
+
 
 export default function Home() {
     return (
@@ -83,16 +66,15 @@ export default function Home() {
                 <a href="#intro" className="scroll-hint"><ChevronDown size={24} /></a>
             </section>
 
-            {/* ── STATS STRIP ── */}
+            {/* ─────────────── INTRO STRIP ─────────────── */}
             <section id="intro" className="intro-strip">
                 <div className="intro-inner">
-                    <div className="intro-stat"><span className="is-num">₹0</span><span className="is-label">Rental cost for stalled project members</span></div>
-                    <div className="is-div" />
-                    <div className="intro-stat"><span className="is-num">&lt;500</span><span className="is-label">sq.mt plots — fast-cashflow redevelopments</span></div>
-                    <div className="is-div" />
-                    <div className="intro-stat"><span className="is-num">DA / PJS</span><span className="is-label">Stamp duty only — capital-light model</span></div>
-                    <div className="is-div" />
-                    <div className="intro-stat"><span className="is-num">11</span><span className="is-label">Step end-to-end redevelopment roadmap</span></div>
+                    {[['₹0', 'Rental cost for stalled project members'], ['<500', 'sq.mt plots — fast-cashflow redevelopments'], ['DA / PJS', 'Stamp duty only — capital-light model'], ['11', 'Step end-to-end redevelopment roadmap']].map(([num, lbl], i) => (
+                        <motion.div key={i} className="intro-stat" {...inView(i * 0.1)}>
+                            <span className="is-num">{num}</span>
+                            <span className="is-label">{lbl}</span>
+                        </motion.div>
+                    ))}
                 </div>
             </section>
 
@@ -104,7 +86,7 @@ export default function Home() {
                         <div className="target-img-overlay" />
                         <span className="target-img-label">Category 01 — Small Societies</span>
                     </div>
-                    <div className="target-content">
+                    <motion.div className="target-content" {...inView(0.1)}>
                         <span className="section-tag">Category 01</span>
                         <h2>Small Societies<br /><em>Left Behind</em></h2>
                         <div className="gold-rule" />
@@ -116,7 +98,7 @@ export default function Home() {
                             <li><CheckCircle size={15} />Members get additional area on top of existing</li>
                         </ul>
                         <Link to="/process" className="btn-secondary" style={{ marginTop: '1.5rem', display: 'inline-flex' }}>See Process <ArrowRight size={14} /></Link>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="target-block reverse">
                     <div className="target-img-wrap">
@@ -124,26 +106,25 @@ export default function Home() {
                         <div className="target-img-overlay" />
                         <span className="target-img-label">Category 02 — Stalled Projects</span>
                     </div>
-                    <div className="target-content">
+                    <motion.div className="target-content" {...inView(0.1)}>
                         <span className="section-tag" style={{ color: '#F59E0B', borderColor: '#F59E0B' }}>Category 02</span>
                         <h2>Stalled Projects —<br /><em>We Take Over</em></h2>
                         <div className="gold-rule" />
-                        <p>Society signed a DA. Developer failed. Construction stopped mid-way — 8 of 12 slabs already complete. The RCC is nearly done. We take over the DA and finish what was started.</p>
+                        <p>Society signed a DA. Developer failed. Construction stopped — the RCC is nearly done. We take over the DA and deliver the project that was promised.</p>
                         <ul className="check-list">
                             <li><CheckCircle size={15} />RCC substantially complete — lower cost to finish</li>
                             <li><CheckCircle size={15} />Members pay <strong>zero rental</strong> — no transit needed</li>
                             <li><CheckCircle size={15} />We rescue the society from legal paralysis</li>
-                            <li><CheckCircle size={15} />Free-sale component funds full construction</li>
                         </ul>
-                        <Link to="/finder" className="btn-primary" style={{ marginTop: '1.5rem', display: 'inline-flex' }}>Find Stalled Projects <ArrowRight size={14} /></Link>
-                    </div>
+                        <Link to="/finder" className="btn-primary" style={{ marginTop: '1.5rem', display: 'inline-flex' }}>View Pipeline <ArrowRight size={14} /></Link>
+                    </motion.div>
                 </div>
             </section>
 
             {/* ── ACQUISITION MODELS ── */}
             <section className="acq-section">
                 <div className="blueprint-bg acq-blueprint">
-                    <div className="acq-inner">
+                    <motion.div className="acq-inner" {...inView(0.1)}>
                         <div className="acq-text">
                             <span className="section-tag" style={{ color: '#93C5FD', borderColor: '#93C5FD' }}>Land Acquisition</span>
                             <h2 style={{ color: '#F5EDD8' }}>Two Ways We<br /><em>Acquire Land</em></h2>
@@ -164,7 +145,7 @@ export default function Home() {
                         <div className="acq-blueprint-img">
                             <img src="/blueprint.png" alt="Architectural blueprint floor plan" />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -188,67 +169,16 @@ export default function Home() {
                 <div className="completed-img-wrap">
                     <img src="/completed.png" alt="Luxury completed residential development Mumbai" className="completed-img" />
                 </div>
-                <div className="completed-content section-padding">
+                <motion.div className="completed-content section-padding" {...inView(0.15)}>
                     <span className="section-tag">The Outcome</span>
-                    <h2>From Abandoned Skeleton<br />to <em>Landmark Address</em></h2>
+                    <h2>From Neglected Plot<br />to <em>Landmark Address</em></h2>
                     <div className="gold-rule" />
-                    <p>This is what we build towards. A finished, premium residential tower where families move in, societies thrive, and the neighbourhood transforms. Free-sale flats fund the entire project — a self-sustaining cycle.</p>
-                    <a href="#revenue-model" className="btn-primary" style={{ marginTop: '2rem', display: 'inline-flex' }}>See Revenue Model <ArrowRight size={16} /></a>
-                </div>
+                    <p>A finished, premium residential tower where families move in, societies thrive, and the neighbourhood transforms. This is what every society we work with can look forward to.</p>
+                    <Link to="/contact" className="btn-primary" style={{ marginTop: '2rem', display: 'inline-flex' }}>Start a Conversation <ArrowRight size={16} /></Link>
+                </motion.div>
             </section>
 
-            {/* ── REVENUE MODEL ── */}
-            <section id="revenue-model" className="embedded-section">
-                <div className="section-padding">
-                    <motion.span className="section-tag" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-                        Monetisation Model
-                    </motion.span>
-                    <motion.h2 className="section-title" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                        How ReBuilt Makes Money
-                    </motion.h2>
-                    <div className="gold-rule" />
-                    <p className="section-subtitle">We earn through four distinct channels — all funded by the project itself, not from society members.</p>
 
-                    <div className="rev-inline-grid">
-                        {streams.map((s, i) => (
-                            <motion.div key={i} className="rev-inline-card glass-panel"
-                                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                                <div className="ric-top">
-                                    <span className="text-gold">{s.icon}</span>
-                                    <span className="ric-pct">{s.pct}</span>
-                                </div>
-                                <h4>{s.title}</h4>
-                                <p>{s.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    {/* Project Economics */}
-                    <div className="econ-inline">
-                        <h3 style={{ fontFamily: "'Cormorant Garamond',Georgia,serif", fontSize: '1.5rem', marginBottom: '1rem' }}>
-                            Illustrative Project Economics
-                        </h3>
-                        <div className="econ-inline-grid">
-                            {[
-                                ['Project Type', 'Small Society — 450 sq.mt / G+7', false],
-                                ['Total Buildable Area', '~8,000 sq.ft (with applicable FSI)', false],
-                                ['Society Members Get', '4,800 sq.ft (existing + 20% extra)', false],
-                                ['Our Free-Sale Component', '3,200 sq.ft ≈ ₹3.8–5 Cr revenue', true],
-                                ['Construction Cost', '~₹2.0–2.5 Cr incl. transit & legal', false],
-                                ['Estimated Net Margin', '₹1.5–2.5 Cr per project', true],
-                            ].map(([l, v, hl], i) => (
-                                <div key={i} className={`econ-cell glass-panel ${hl ? 'econ-hl' : ''}`}>
-                                    <p className="econ-l">{l as string}</p>
-                                    <p className="econ-v">{v as string}</p>
-                                </div>
-                            ))}
-                        </div>
-                        <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.75rem', fontStyle: 'italic' }}>
-                            * Indicative numbers for illustrative purposes only. Actuals vary by location, FSI, and market.
-                        </p>
-                    </div>
-                </div>
-            </section>
 
             {/* ── BUSINESS MODEL CANVAS ── */}
             <section id="business-model" className="embedded-section" style={{ background: 'var(--bg-secondary)' }}>
@@ -283,11 +213,13 @@ export default function Home() {
             </section>
 
             {/* ── FINAL CTA ── */}
-            <section className="cta-strip">
-                <h2>Is your society waiting for the right developer?</h2>
-                <p>First consultation is free and fully confidential. Approach us or let us come to you.</p>
-                <Link to="/contact" className="btn-primary">Get a Free Consultation <ArrowRight size={16} /></Link>
-            </section>
+            <motion.section className="cta-strip" {...inView(0)}>
+                <motion.h2 {...inView(0.1)}>Is your society waiting for the right developer?</motion.h2>
+                <motion.p {...inView(0.2)}>First consultation is free and fully confidential. Approach us or let us come to you.</motion.p>
+                <motion.div {...inView(0.3)}>
+                    <Link to="/contact" className="btn-primary">Get a Free Consultation <ArrowRight size={16} /></Link>
+                </motion.div>
+            </motion.section>
 
         </div>
     );

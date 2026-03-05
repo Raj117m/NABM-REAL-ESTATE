@@ -23,7 +23,7 @@ export default function Contact() {
             await fetch(SHEET_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify({ ...form, source: 'Contact Page' }),
             });
         } catch (_) { /* no-cors swallows error — treat as success */ }
