@@ -19,12 +19,9 @@ export default function FloatingContact() {
         e.preventDefault();
         setSending(true);
         try {
-            await fetch(SHEET_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify({ ...form, source: 'Floating Contact Widget' }),
-            });
+            const body = new URLSearchParams();
+            Object.entries({ ...form, source: 'Floating Contact Widget' }).forEach(([k, v]) => body.append(k, v));
+            await fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body });
         } catch (_) { /* no-cors swallows the response — treat as success */ }
         setSending(false);
         setSubmitted(true);
@@ -48,7 +45,7 @@ export default function FloatingContact() {
                     {!submitted ? (
                         <>
                             <div className="fc-popup-head">
-                                <h4>Reach Out to ReBuilt</h4>
+                                <h4>Reach Out to Crystal Developers</h4>
                                 <p>Quick message — we respond within 24 hours.</p>
                             </div>
                             <form onSubmit={submit} className="fc-form">

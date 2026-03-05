@@ -20,12 +20,9 @@ export default function Contact() {
         e.preventDefault();
         setSending(true);
         try {
-            await fetch(SHEET_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify({ ...form, source: 'Contact Page' }),
-            });
+            const body = new URLSearchParams();
+            Object.entries({ ...form, source: 'Contact Page' }).forEach(([k, v]) => body.append(k, v));
+            await fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body });
         } catch (_) { /* no-cors swallows error — treat as success */ }
         setSending(false);
         setSubmitted(true);
@@ -41,7 +38,7 @@ export default function Contact() {
                     <motion.span className="section-tag" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>Let's Talk</motion.span>
                     <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
                         style={{ fontFamily: "'Cormorant Garamond',Georgia,serif", fontSize: 'clamp(2rem,4vw,3rem)', color: '#F5EDD8' }}>
-                        Partner With <em style={{ color: 'var(--gold-primary)', fontStyle: 'italic' }}>ReBuilt</em>
+                        Partner With <em style={{ color: 'var(--gold-primary)', fontStyle: 'italic' }}>Crystal Developers</em>
                     </motion.h1>
                     <div className="gold-rule" />
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
@@ -57,12 +54,12 @@ export default function Contact() {
                     <motion.div className="contact-left"
                         initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
                         <div className="glass-panel contact-info-panel">
-                            <h3 style={{ fontFamily: "'Cormorant Garamond',Georgia,serif", fontSize: '1.4rem', marginBottom: '0.5rem' }}>ReBuilt Development</h3>
+                            <h3 style={{ fontFamily: "'Cormorant Garamond',Georgia,serif", fontSize: '1.4rem', marginBottom: '0.5rem' }}>Crystal Developers</h3>
                             <p style={{ fontSize: '0.9rem', marginBottom: '2rem' }}>Mumbai's specialist in stalled project rescues and small society redevelopment.</p>
                             <div className="info-rows">
                                 <div className="info-row">
                                     <Mail size={18} className="text-gold" />
-                                    <div><p className="info-lbl">Email</p><p className="info-val">partners@rebuilt.in</p></div>
+                                    <div><p className="info-lbl">Email</p><p className="info-val">partners@crystaldevelopers.in</p></div>
                                 </div>
                                 <div className="info-row">
                                     <Phone size={18} className="text-gold" />

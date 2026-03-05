@@ -21,17 +21,28 @@
 
 .navbar-brand {
     display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.8rem;
     text-decoration: none;
+}
+
+.nav-logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-brand-text {
+    display: flex;
+    flex-direction: column;
 }
 
 .brand-name {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--gold-primary);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 1;
 }

@@ -10,8 +10,9 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-content">
         <Link to="/" className="navbar-brand">
-          <div>
-            <div className="brand-name">ReBuilt</div>
+          <img src="/logo.svg" alt="Crystal Developers Logo" className="nav-logo-img" />
+          <div className="nav-brand-text">
+            <div className="brand-name">Crystal Developers</div>
             <div className="brand-sub">Redevelopment Specialists · Mumbai</div>
           </div>
         </Link>

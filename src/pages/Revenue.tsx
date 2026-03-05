@@ -33,7 +33,7 @@ export default function Revenue() {
                     </motion.span>
                     <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}
                         style={{ fontFamily: "'Cormorant Garamond',Georgia,serif", fontSize: 'clamp(2rem,4vw,3rem)', color: '#F5EDD8' }}>
-                        How ReBuilt Makes Money
+                        How Crystal Developers Makes Money
                     </motion.h1>
                     <div className="gold-rule center" />
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}

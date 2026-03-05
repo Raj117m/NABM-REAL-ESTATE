@@ -190,7 +190,7 @@ export default function Home() {
                         Business Model Canvas
                     </motion.h2>
                     <div className="gold-rule" />
-                    <p className="section-subtitle">The six pillars of how ReBuilt creates and captures value in Mumbai's stalled redevelopment market.</p>
+                    <p className="section-subtitle">The six pillars of how Crystal Developers creates and captures value in Mumbai's stalled redevelopment market.</p>
 
                     <div className="bmc-inline-grid">
                         {canvas.map((item, i) => (

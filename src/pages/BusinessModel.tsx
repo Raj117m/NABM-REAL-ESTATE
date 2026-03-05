@@ -115,7 +115,7 @@ export default function BusinessModel() {
                 <div className="gold-rule center" />
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
                     style={{ color: 'rgba(245,237,216,0.65)', maxWidth: '560px', margin: '0 auto', lineHeight: 1.75 }}>
-                    How ReBuilt creates, delivers, and captures value in Mumbai's stalled redevelopment market.
+                    How Crystal Developers creates, delivers, and captures value in Mumbai's stalled redevelopment market.
                 </motion.p>
             </div>
 
