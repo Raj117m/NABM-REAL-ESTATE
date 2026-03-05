@@ -1,132 +1,267 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --accent-primary: #3b82f6;
-  --accent-secondary: #8b5cf6;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --gold-primary: #C9A84C;
+  --gold-light: #E8C76A;
+  --gold-deep: #8B6914;
+  --gold-pale: #F2E0A0;
+  --bg-primary: #0C0B08;
+  --bg-secondary: #141209;
+  --bg-card: #1A1710;
+  --text-primary: #F5EDD8;
+  --text-secondary: #A89870;
+  --blueprint-blue: #1A3A5C;
+  --concrete-grey: #8A8A80;
+  --glass-bg: rgba(20, 18, 9, 0.88);
+  --glass-border: rgba(201, 168, 76, 0.22);
+  --shadow-gold: 0 8px 40px rgba(201, 168, 76, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  background-color: var(--bg-primary);
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, rgb(84, 234, 4) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-  background-attachment: fixed;
+  font-family: 'Inter', Georgia, serif;
+  background: var(--bg-primary);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* ── Headings – Cormorant Garamond = architectural serif ── */
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  color: var(--text-primary);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--accent-secondary);
-  border-radius: 4px;
+  width: 6px;
 }
 
-/* Glassmorphism Utility */
+::-webkit-scrollbar-track {
+  background: #0C0B08;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-deep);
+  border-radius: 3px;
+}
+
+/* ── Glass card ── */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow-lg);
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: var(--shadow-gold);
 }
 
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
+/* ── Layout helpers ── */
+.section-padding {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--gold-primary);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
   color: var(--text-primary);
-}
-p {
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
-/* Button Styles */
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin-bottom: 3.5rem;
+  line-height: 1.7;
+}
+
+/* ── Gold rule ── */
+.gold-rule {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-light));
+  margin: 1.25rem 0 2rem;
+}
+
+.gold-rule.center {
+  margin: 1.25rem auto 2rem;
+}
+
+/* ── Gold tag (pill) ── */
+.gold-tag {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--gold-primary);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 0.3rem 1rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Buttons ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
+  gap: 0.6rem;
+  background: var(--gold-primary);
+  color: #0C0B08;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.25s;
   text-decoration: none;
 }
 
 .btn-primary:hover {
+  background: var(--gold-light);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   background: transparent;
-  color: var(--text-primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  color: var(--gold-primary);
+  padding: 0.9rem 2.2rem;
+  border-radius: 2px;
   font-weight: 600;
-  border: 1px solid var(--glass-border);
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--gold-primary);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.25s;
   text-decoration: none;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(201, 168, 76, 0.08);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.2);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ── Utility ── */
+.text-gold {
+  color: var(--gold-primary);
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+.no-results {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 3rem;
+  grid-column: 1/-1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
 }
 
-.section-padding {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.w-full {
+  width: 100%;
+  justify-content: center;
 }
 
-.grid-cols-2 {
+/* ── Blueprint texture overlay helper ── */
+.blueprint-bg {
+  background-color: var(--blueprint-blue);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── CTA Strip (shared) ── */
+.cta-strip {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.07) 0%, rgba(139, 105, 20, 0.04) 100%);
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.cta-strip h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 1rem;
+}
+
+.cta-strip p {
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+/* Grids */
+.grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
-@media (max-width: 768px) {
-  .grid-cols-2 {
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+
+  .grid-2,
+  .grid-3 {
     grid-template-columns: 1fr;
   }
 }

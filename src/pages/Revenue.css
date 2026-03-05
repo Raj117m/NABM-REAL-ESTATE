@@ -1,0 +1,155 @@
+.rev-wrap {
+    min-height: 100vh;
+}
+
+.rev-header {
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.rev-header-inner {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.rev-sub-head {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.rev-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 0;
+}
+
+.rev-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-color: rgba(201, 168, 76, 0.12);
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.rev-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.rev-pct-block {
+    text-align: right;
+}
+
+.rev-pct {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold-primary);
+    display: block;
+    line-height: 1;
+}
+
+.rev-pct-l {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.3px;
+}
+
+/* Economics */
+.econ-strip {
+    background: rgba(201, 168, 76, 0.025);
+    border-top: 1px solid rgba(201, 168, 76, 0.1);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+}
+
+.econ-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.econ-box {
+    padding: 1.25rem 1.5rem;
+    border-color: rgba(201, 168, 76, 0.08);
+    border-radius: 4px;
+}
+
+.econ-hl {
+    border-color: rgba(201, 168, 76, 0.4) !important;
+    background: rgba(201, 168, 76, 0.05) !important;
+}
+
+.econ-l {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+}
+
+.econ-v {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.econ-disc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Platform */
+.plat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.plat-card {
+    border-color: rgba(201, 168, 76, 0.1);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: transform 0.3s;
+}
+
+.plat-card:hover {
+    transform: translateY(-4px);
+}
+
+.plat-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgba(201, 168, 76, 0.18);
+    line-height: 1;
+}
+
+.plat-card h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--gold-primary);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+
+    .rev-grid,
+    .econ-grid,
+    .plat-grid {
+        grid-template-columns: 1fr;
+    }
+}

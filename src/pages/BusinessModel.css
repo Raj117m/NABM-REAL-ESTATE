@@ -1,27 +1,115 @@
+.bmc-wrap {
+    min-height: 100vh;
+}
+
+/* Header */
+.bmc-page-header {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 2rem;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+}
+
+.bmc-page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/blueprint.png') center/cover no-repeat;
+    opacity: 0.04;
+}
+
+/* Grid */
 .bmc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
 }
 
 .bmc-card {
+    padding: 1.75rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    min-height: 200px;
-    background: rgba(255, 255, 255, 0.05);
-    transition: transform 0.2s;
+    border-color: rgba(201, 168, 76, 0.12);
+    border-radius: 4px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.bmc-card h3 {
-    color: var(--accent-primary);
-    border-bottom: 2px solid var(--accent-secondary);
-    padding-bottom: 0.5rem;
-    width: max-content;
+.bmc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(201, 168, 76, 0.25);
 }
 
-.model-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.bmc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid;
+}
+
+.bmc-id {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.6;
+}
+
+.bmc-card-header h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.bmc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+}
+
+.bmc-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.bmc-bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+}
+
+.bmc-note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background: rgba(201, 168, 76, 0.05);
+    border-left: 2px solid var(--gold-deep);
+    padding: 0.65rem 0.85rem;
+    border-radius: 0 3px 3px 0;
+    line-height: 1.55;
+    margin-top: auto;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .bmc-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 580px) {
+    .bmc-grid {
+        grid-template-columns: 1fr;
+    }
 }
