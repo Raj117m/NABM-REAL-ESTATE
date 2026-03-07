@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Search, FileText, Phone, Layers } from 'lucide-react';
+import { Search, Phone, Layers, Activity, Shield, FileCheck } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -18,10 +18,11 @@ export default function Navbar() {
         </Link>
         <ul className="navbar-links">
           <li><Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}><Layers size={13} />Overview</Link></li>
-          <li><Link to="/process" className={`nav-link ${isActive('/process') ? 'active' : ''}`}><FileText size={13} />Our Process</Link></li>
           <li><Link to="/finder" className={`nav-link ${isActive('/finder') ? 'active' : ''}`}><Search size={13} />Projects</Link></li>
-          <li><a href="/#business-model" className="nav-link"><Layers size={13} />Business Model</a></li>
-          <li><Link to="/contact" className={`nav-link nav-cta ${isActive('/contact') ? 'active' : ''}`}><Phone size={13} />Partner With Us</Link></li>
+          <li><Link to="/tracker" className={`nav-link ${isActive('/tracker') ? 'active' : ''}`}><Activity size={13} />Tracker</Link></li>
+          <li><Link to="/funds" className={`nav-link ${isActive('/funds') ? 'active' : ''}`}><Shield size={13} />Compliance</Link></li>
+          <li><Link to="/feasibility" className={`nav-link ${isActive('/feasibility') ? 'active' : ''}`}><FileCheck size={13} />Feasibility</Link></li>
+          <li><Link to="/contact" className={`nav-link nav-cta ${isActive('/contact') ? 'active' : ''}`}><Phone size={13} />Partner</Link></li>
         </ul>
       </div>
     </nav>

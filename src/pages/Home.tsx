@@ -179,6 +179,59 @@ export default function Home() {
             </section>
 
 
+            {/* ── B2B PROTOTYPE PLATFORM ── */}
+            <section className="embedded-section section-padding" style={{ background: '#0C0B08', paddingBottom: '4rem' }}>
+                <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 4rem' }}>
+                    <motion.span className="section-tag" style={{ color: '#34D399', borderColor: '#34D399' }} {...inView()}>
+                        Platform Features
+                    </motion.span>
+                    <motion.h2 className="section-title" {...inView(0.1)} style={{ color: '#FFF' }}>
+                        Single Source of Truth
+                    </motion.h2>
+                    <div className="gold-rule center" />
+                    <motion.p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.6 }} {...inView(0.2)}>
+                        Crystal Developers is more than a developer. We offer a high-fidelity web-based B2B platform connecting societies, investors, and homeowners through unprecedented compliance, SaaS-managed oversight, and transparency.
+                    </motion.p>
+                </div>
+
+                <div className="bmc-inline-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+                    <motion.div className="bmc-inline-card glass-panel" {...inView(0.1)} whileHover={{ scale: 1.02 }} style={{ display: 'flex', flexDirection: 'column' }}>
+                        <div className="bic-head" style={{ borderBottomColor: '#C9A84C40' }}>
+                            <h4 style={{ color: '#C9A84C', fontSize: '1.2rem', margin: 0, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>Rescue Tracker</h4>
+                        </div>
+                        <ul className="bic-list" style={{ flex: 1, marginBottom: '1.5rem' }}>
+                            <li><span className="bic-dot" style={{ background: '#C9A84C' }} />Enter RERA number for a real-time dashboard</li>
+                            <li><span className="bic-dot" style={{ background: '#C9A84C' }} />Track the 5-phase completion roadmap</li>
+                            <li><span className="bic-dot" style={{ background: '#C9A84C' }} />Weekly site photos & structural audits</li>
+                        </ul>
+                        <Link to="/tracker" className="btn-secondary" style={{ width: '100%', textAlign: 'center', display: 'block', padding: '0.75rem', marginTop: 'auto' }}>Launch Tracker</Link>
+                    </motion.div>
+
+                    <motion.div className="bmc-inline-card glass-panel" {...inView(0.2)} whileHover={{ scale: 1.02 }} style={{ display: 'flex', flexDirection: 'column' }}>
+                        <div className="bic-head" style={{ borderBottomColor: '#34D39940' }}>
+                            <h4 style={{ color: '#34D399', fontSize: '1.2rem', margin: 0, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>SaaS Compliance Portal</h4>
+                        </div>
+                        <ul className="bic-list" style={{ flex: 1, marginBottom: '1.5rem' }}>
+                            <li><span className="bic-dot" style={{ background: '#34D399' }} />Secure login for society members</li>
+                            <li><span className="bic-dot" style={{ background: '#34D399' }} />Real-time Escrow account status</li>
+                            <li><span className="bic-dot" style={{ background: '#34D399' }} />Ensures DMA subscription transparency</li>
+                        </ul>
+                        <Link to="/funds" className="btn-secondary" style={{ width: '100%', textAlign: 'center', display: 'block', padding: '0.75rem', borderColor: '#34D399', color: '#34D399', marginTop: 'auto' }}>View Escrow Sync</Link>
+                    </motion.div>
+
+                    <motion.div className="bmc-inline-card glass-panel" {...inView(0.3)} whileHover={{ scale: 1.02 }} style={{ display: 'flex', flexDirection: 'column' }}>
+                        <div className="bic-head" style={{ borderBottomColor: '#93C5FD40' }}>
+                            <h4 style={{ color: '#93C5FD', fontSize: '1.2rem', margin: 0, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>B2B Feasibility Tool</h4>
+                        </div>
+                        <ul className="bic-list" style={{ flex: 1, marginBottom: '1.5rem' }}>
+                            <li><span className="bic-dot" style={{ background: '#93C5FD' }} />Upload DA, IOD, CC documents</li>
+                            <li><span className="bic-dot" style={{ background: '#93C5FD' }} />Automated DMA model eligibility screening</li>
+                            <li><span className="bic-dot" style={{ background: '#93C5FD' }} />Get a simulated Project Viability Score</li>
+                        </ul>
+                        <Link to="/feasibility" className="btn-secondary" style={{ width: '100%', textAlign: 'center', display: 'block', padding: '0.75rem', borderColor: '#93C5FD', color: '#93C5FD', marginTop: 'auto' }}>Run Feasibility</Link>
+                    </motion.div>
+                </div>
+            </section>
 
             {/* ── BUSINESS MODEL CANVAS ── */}
             <section id="business-model" className="embedded-section" style={{ background: 'var(--bg-secondary)' }}>
